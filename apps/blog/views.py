@@ -26,7 +26,7 @@ def blog(request):
         subemail = request.POST.get('subemail')
 
         SubEmail.objects.create(
-            email=subemail,
+            subemail=subemail,
         )
 
         return redirect(url)

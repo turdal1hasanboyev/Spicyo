@@ -1,3 +1,2 @@
 # Spicyo
-
 Spicyo Blog Site!
