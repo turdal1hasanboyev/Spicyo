@@ -5,4 +5,4 @@ from apps.common.models import SubEmail
 
 @admin.register(SubEmail)
 class SubEmailAdmin(admin.ModelAdmin):
-    list_display = ('id', 'subemail', 'created_at')
+    list_display = ('id', 'sub_email', 'created_at')

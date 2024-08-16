@@ -8,7 +8,7 @@ from apps.contact.models import Contact
 def blog(request):
     url = request.META.get('HTTP_REFERER')
 
-    blogs = Blog.objects.all().order_by("-id")[:3]
+    blogs = Blog.objects.all()
 
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -23,12 +23,12 @@ def blog(request):
         return redirect(url)
     
     if request.method == "POST":
-        subemail = request.POST.get('subemail')
+        sub_email = request.POST.get('subemail')
 
         SubEmail.objects.create(
-            subemail=subemail,
+            sub_email=sub_email,
         )
 
         return redirect(url)
 
-    return render(request, 'blog.html', {"blogs": blogs})
+    return render(request, 'blog.html', {"blogs": blogs.order_by("-id")[:3]})

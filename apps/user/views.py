@@ -25,10 +25,10 @@ def about(request):
         return redirect(url)
     
     if request.method == "POST":
-        subemail = request.POST.get('subemail')
+        sub_email = request.POST.get('subemail')
 
         SubEmail.objects.create(
-            subemail=subemail,
+            sub_email=sub_email,
         )
 
         return redirect(url)
@@ -39,9 +39,9 @@ def home(request):
     url = request.META.get('HTTP_REFERER')
 
     client = User.objects.get(id=1)
-    recipes = Recipe.objects.all().order_by("id")[:5]
+    recipes = Recipe.objects.all()
     about = About.objects.get(id=1)
-    blogs = Blog.objects.all().order_by("-id")[:3]
+    blogs = Blog.objects.all()
 
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -56,19 +56,19 @@ def home(request):
         return redirect(url)
     
     if request.method == "POST":
-        subemail = request.POST.get('subemail')
+        sub_email = request.POST.get('subemail')
 
         SubEmail.objects.create(
-            subemail=subemail,
+            sub_email=sub_email,
         )
 
         return redirect(url)
 
     context = {
         'client': client,
-        'recipes': recipes,
+        'recipes': recipes.order_by("id")[:5],
         'about': about,
-        'blogs': blogs,
+        'blogs': blogs.order_by("-id")[:3],
     }
 
     return render(request, 'index.html', context)

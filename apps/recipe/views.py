@@ -8,7 +8,7 @@ from apps.contact.models import Contact
 def recipe(request):
     url = request.META.get('HTTP_REFERER')
 
-    recipes = Recipe.objects.all().order_by("id")[:5]
+    recipes = Recipe.objects.all()
 
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -23,12 +23,10 @@ def recipe(request):
         return redirect(url)
     
     if request.method == "POST":
-        subemail = request.POST.get('subemail')
+        sub_email = request.POST.get('subemail')
 
-        SubEmail.objects.create(
-            subemail=subemail,
-        )
+        SubEmail.objects.create(sub_email=sub_email)
 
         return redirect(url)
 
-    return render(request, 'recipe.html', {"recipes": recipes})
+    return render(request, 'recipe.html', {"recipes": recipes.order_by("id")[:5]})

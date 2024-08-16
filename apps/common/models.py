@@ -10,7 +10,7 @@ class BaseModel(models.Model):
 
 
 class SubEmail(BaseModel):
-    subemail = models.EmailField(max_length=225, unique=True, null=True, blank=True)
+    sub_email = models.EmailField(max_length=225, unique=True, null=True, blank=True)
 
     def __str__(self) -> str:
-        return f"{self.id} - {self.subemail}"
+        return f"{self.id} - {self.sub_email}"
