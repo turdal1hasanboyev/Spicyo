@@ -12,5 +12,5 @@ class BaseModel(models.Model):
 class SubEmail(BaseModel):
     sub_email = models.EmailField(max_length=225, unique=True, null=True, blank=True)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return f"{self.id} - {self.sub_email}"

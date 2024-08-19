@@ -10,7 +10,7 @@ class User(BaseModel, AbstractUser):
     bio = RichTextField(null=True, blank=True)
     avatar = models.ImageField(upload_to='avatars/', null=True, blank=True)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return f"{self.id} - {self.username}"
 
 
@@ -19,5 +19,5 @@ class About(BaseModel):
     description = RichTextField(null=True, blank=True)
     image = models.ImageField(upload_to='abouts/', null=True, blank=True)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return f"{self.id} - {self.name}"

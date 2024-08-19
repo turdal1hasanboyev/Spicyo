@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.recipe.models import Recipe
+from .models import Recipe
 
 
 @admin.register(Recipe)

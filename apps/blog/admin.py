@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.blog.models import Blog
+from .models import Blog
 
 
 @admin.register(Blog)

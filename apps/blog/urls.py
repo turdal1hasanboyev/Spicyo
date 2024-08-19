@@ -1,6 +1,6 @@
 from django.urls import path
 
-from apps.blog.views import blog
+from .views import blog
 
 
 urlpatterns = [

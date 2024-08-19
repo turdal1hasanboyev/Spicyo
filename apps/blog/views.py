@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from apps.blog.models import Blog
+from .models import Blog
 from apps.common.models import SubEmail
 from apps.contact.models import Contact
 

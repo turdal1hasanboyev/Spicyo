@@ -10,5 +10,5 @@ class Blog(BaseModel):
     description = RichTextField(null=True, blank=True)
     image = models.ImageField(upload_to='blogs/', null=True, blank=True)
 
-    def __str__(self) -> str:
+    def __str__(self):
         return f"{self.id} - {self.name}"
